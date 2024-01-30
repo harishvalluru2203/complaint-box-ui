@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  Box,
+  CircularProgress,
   Link,
   Paper,
   Table,
@@ -11,19 +13,23 @@ import {
   TableRow,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import DeleteUser from "./DeleteUser";
+import useSWR from "swr";
 
 export default function UserList() {
-  const [userList, setUserList] = useState([]);
+  const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
-  useEffect(() => {
-    const getData = async () => {
-      const query = await fetch("http://localhost:4000/user/list");
-      const response = await query.json();
-      setUserList(response);
-    };
+  const { isLoading, data: userList } = useSWR(
+    "http://localhost:4000/user/list",
+    (url) => fetcher(url)
+  );
 
-    getData();
-  }, []);
+  if (isLoading)
+    return (
+      <Box display="flex">
+        <CircularProgress />
+      </Box>
+    );
 
   return (
     <TableContainer component={Paper}>
@@ -33,6 +39,8 @@ export default function UserList() {
             <TableCell align="center">First Name</TableCell>
             <TableCell align="center">Last Name</TableCell>
             <TableCell align="center">User Name</TableCell>
+            <TableCell align="center"></TableCell>
+            <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -48,15 +56,9 @@ export default function UserList() {
                 <TableCell align="center">{user.userName}</TableCell>
                 <TableCell align="center">
                   <Link href={`/user/registration/${user._id}`}>Edit</Link>
-
-                  {/* <Link
-                    href={{
-                      pathname: "/user/registration",
-                      query: { id: user._id },
-                    }}
-                  >
-                    Edit
-                  </Link> */}
+                </TableCell>
+                <TableCell align="center">
+                  <DeleteUser userId={user._id} />
                 </TableCell>
               </TableRow>
             ))}
