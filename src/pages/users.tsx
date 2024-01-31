@@ -1,7 +1,5 @@
 import DeleteUser from "@/app/user/list/DeleteUser";
 import {
-  Box,
-  CircularProgress,
   Link,
   Paper,
   Table,
@@ -23,7 +21,9 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default function UserList(users: any = []) {
+export default function UserList(props: any = []) {
+  const { userList } = props;
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -37,7 +37,7 @@ export default function UserList(users: any = []) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.userList.map((user: any) => (
+          {userList.map((user: any) => (
             <TableRow
               key={user.firstName}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
