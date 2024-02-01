@@ -27,8 +27,6 @@ export default function UserRegistration(props: any) {
     });
     const response = await query.json();
     console.log("after submit response => ", response);
-    // router.refresh();
-
     router.push("/user/list");
   };
 
@@ -60,6 +58,7 @@ export default function UserRegistration(props: any) {
               {...register("firstName")}
               autoComplete="off"
               name="firstName"
+              value={props.firstName}
             />
           </Grid>
           <Grid item>
@@ -69,6 +68,7 @@ export default function UserRegistration(props: any) {
               variant="outlined"
               {...register("lastName")}
               autoComplete="off"
+              value={props.lastName}
             />
           </Grid>
         </Grid>
@@ -80,6 +80,7 @@ export default function UserRegistration(props: any) {
             fullWidth
             {...register("userName")}
             autoComplete="off"
+            value={props.userName}
           />
         </Box>
 
