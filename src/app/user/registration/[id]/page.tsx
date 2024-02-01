@@ -1,6 +1,6 @@
 "use client";
+import UserRegistration from "@/app/register-user";
 import { useParams } from "next/navigation";
-import UserRegistration from "../page";
 import { useEffect, useState } from "react";
 
 export default function UserEditDetails() {
@@ -9,7 +9,7 @@ export default function UserEditDetails() {
 
   useEffect(() => {
     const getUserDetails = async () => {
-      const query = await fetch(`http://localhost:4000/user/${params.id}`);
+      const query = await fetch(`http://localhost:4000/user/${params?.id}`);
       const response = await query.json();
       setUserDetails(response);
     };
