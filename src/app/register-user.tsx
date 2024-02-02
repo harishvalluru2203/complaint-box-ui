@@ -48,6 +48,7 @@ export default function UserRegistration(props: any) {
     });
     const response = await query.json();
     console.log("after update => ", response);
+    router.push("/user/list");
   };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
