@@ -1,9 +1,10 @@
 "use client";
 import { Box, Grid, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 interface IFormInput {
+  _id: string;
   firstName: string;
   lastName: string;
   userName: string;
@@ -13,8 +14,14 @@ export default function UserRegistration(props: any) {
   const router = useRouter();
 
   const { mode } = props;
-  const { register, handleSubmit } = useForm<IFormInput>({
-    defaultValues: props,
+
+  const { register, handleSubmit, control } = useForm<IFormInput>({
+    defaultValues: {
+      _id: props._id,
+      firstName: props.firstName,
+      lastName: props.lastName,
+      userName: props.userName,
+    },
   });
 
   const addUser = async (data: any) => {
@@ -31,6 +38,7 @@ export default function UserRegistration(props: any) {
   };
 
   const updateUser = async (data: any) => {
+    console.log("data: ", data);
     const query = await fetch("http://localhost:4000/user/update", {
       method: "PUT",
       headers: {
@@ -51,36 +59,33 @@ export default function UserRegistration(props: any) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container mb={2} gap={2}>
           <Grid item>
-            <TextField
-              id="outlined-basic"
-              label="First Name"
-              variant="outlined"
-              {...register("firstName")}
-              autoComplete="off"
+            <Controller
+              control={control}
               name="firstName"
+              render={({ field }) => (
+                <TextField label="First Name" variant="outlined" {...field} />
+              )}
             />
           </Grid>
           <Grid item>
-            <TextField
-              id="outlined-basic"
-              label="Last Name"
-              variant="outlined"
-              {...register("lastName")}
-              autoComplete="off"
+            <Controller
+              control={control}
+              name="lastName"
+              render={({ field }) => (
+                <TextField label="Last Name" variant="outlined" {...field} />
+              )}
             />
           </Grid>
         </Grid>
         <Box mb={2}>
-          <TextField
-            id="outlined-basic"
-            label="User Name"
-            variant="outlined"
-            fullWidth
-            {...register("userName")}
-            autoComplete="off"
+          <Controller
+            control={control}
+            name="userName"
+            render={({ field }) => (
+              <TextField label="User Name" variant="outlined" {...field} />
+            )}
           />
         </Box>
-
         <Box display="flex" justifyContent="center">
           <input type="submit" />
         </Box>
