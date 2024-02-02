@@ -1,3 +1,4 @@
+import DeleteUser from "@/app/delete-user";
 import {
   Link,
   Paper,
@@ -8,7 +9,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import DeleteUser from "./DeleteUser";
 
 export const getUsersList = async () => {
   const query = await fetch("http://localhost:4000/user/list", {

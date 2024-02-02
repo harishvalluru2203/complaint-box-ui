@@ -6,6 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { useRouter } from "next/navigation";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -17,7 +18,8 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function DeleteUser(props: any) {
-  const { userId } = props;
+  const router = useRouter();
+  const { userId, onClose } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -35,6 +37,7 @@ export default function DeleteUser(props: any) {
     const response = await query.json();
     console.log("after delete response => ", response);
     setOpen(false);
+    router.refresh();
   };
 
   return (
