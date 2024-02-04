@@ -64,7 +64,12 @@ export default function UserRegistration(props: any) {
               control={control}
               name="firstName"
               render={({ field }) => (
-                <TextField label="First Name" variant="outlined" {...field} />
+                <TextField
+                  label="First Name"
+                  variant="outlined"
+                  {...field}
+                  data-testid="first_name_id"
+                />
               )}
             />
           </Grid>

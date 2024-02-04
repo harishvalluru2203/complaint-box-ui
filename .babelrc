@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    ["@babel/preset-react", { "runtime": "automatic" }],
+    "@babel/preset-typescript"
+  ]
+}
+
+/* 
+Issue: React is not defined when running the unit tests
+Solution: Add { "runtime": "automatic" } for @babel/preset-react
+ */
