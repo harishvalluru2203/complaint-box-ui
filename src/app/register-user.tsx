@@ -26,36 +26,44 @@ export default function UserRegistration(props: any) {
   });
 
   const addUser = async (data: any) => {
-    const query = await fetch("http://localhost:4000/user/registration", {
+    const response = await fetch("http://localhost:4000/user/registration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    const response = await query.json();
-    console.log("after submit response => ", response);
-    router.push("/user/list");
-    toast.success("User added successfully", {
-      position: "top-right",
-    });
+    if (response.ok) {
+      router.push("/user/list");
+      toast.success("User added successfully", {
+        position: "top-right",
+      });
+    } else {
+      toast.error("Internal Server Error", {
+        position: "top-right",
+      });
+    }
   };
 
   const updateUser = async (data: any) => {
     console.log("data: ", data);
-    const query = await fetch("http://localhost:4000/user/update", {
+    const response = await fetch("http://localhost:4000/user/update", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    const response = await query.json();
-    console.log("after update => ", response);
-    router.push("/user/list");
-    toast.success("User updated successfully", {
-      position: "top-right",
-    });
+    if (response.ok) {
+      router.push("/user/list");
+      toast.success("User updated successfully", {
+        position: "top-right",
+      });
+    } else {
+      toast.error("Internal Server Error", {
+        position: "top-right",
+      });
+    }
   };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {

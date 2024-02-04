@@ -32,16 +32,21 @@ export default function DeleteUser(props: any) {
   };
 
   const deleteUser = async () => {
-    const query = await fetch(`http://localhost:4000/user/${userId}`, {
+    const response = await fetch(`http://localhost:4000/user/${userId}`, {
       method: "DELETE",
     });
-    const response = await query.json();
-    console.log("after delete response => ", response);
+    if (response.ok) {
+      router.push("/user/list");
+      toast.success("User deleted successfully", {
+        position: "top-right",
+      });
+    } else {
+      toast.error("Internal Server Error", {
+        position: "top-right",
+      });
+    }
     setOpen(false);
     router.refresh();
-    toast.success("User deleted successfully", {
-      position: "top-right",
-    });
   };
 
   return (
