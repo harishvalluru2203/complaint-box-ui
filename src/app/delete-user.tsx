@@ -7,6 +7,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -38,6 +39,9 @@ export default function DeleteUser(props: any) {
     console.log("after delete response => ", response);
     setOpen(false);
     router.refresh();
+    toast.success("User deleted successfully", {
+      position: "top-right",
+    });
   };
 
   return (

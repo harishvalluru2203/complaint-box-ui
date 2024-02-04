@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,6 +15,7 @@ export default function UserDashboard({
 }) {
   return (
     <section>
+      <ToastContainer />
       <ul>
         <li>
           <Link href="/user/list">User List</Link>

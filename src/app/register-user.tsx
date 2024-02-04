@@ -2,6 +2,7 @@
 import { Box, Grid, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 interface IFormInput {
   _id: string;
@@ -35,6 +36,9 @@ export default function UserRegistration(props: any) {
     const response = await query.json();
     console.log("after submit response => ", response);
     router.push("/user/list");
+    toast.success("User added successfully", {
+      position: "top-right",
+    });
   };
 
   const updateUser = async (data: any) => {
@@ -49,6 +53,9 @@ export default function UserRegistration(props: any) {
     const response = await query.json();
     console.log("after update => ", response);
     router.push("/user/list");
+    toast.success("User updated successfully", {
+      position: "top-right",
+    });
   };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
