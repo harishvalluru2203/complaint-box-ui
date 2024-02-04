@@ -83,7 +83,12 @@ export default function UserRegistration(props: any) {
             control={control}
             name="userName"
             render={({ field }) => (
-              <TextField label="User Name" variant="outlined" {...field} />
+              <TextField
+                label="User Name"
+                variant="outlined"
+                fullWidth
+                {...field}
+              />
             )}
           />
         </Box>
