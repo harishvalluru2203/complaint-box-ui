@@ -68,7 +68,7 @@ export default function UserRegistration(props: any) {
                   label="First Name"
                   variant="outlined"
                   {...field}
-                  data-testid="first_name_id"
+                  data-testid="user__registration--first-name"
                 />
               )}
             />
@@ -78,7 +78,12 @@ export default function UserRegistration(props: any) {
               control={control}
               name="lastName"
               render={({ field }) => (
-                <TextField label="Last Name" variant="outlined" {...field} />
+                <TextField
+                  label="Last Name"
+                  variant="outlined"
+                  {...field}
+                  data-testid="user__registration--last-name"
+                />
               )}
             />
           </Grid>
@@ -93,6 +98,7 @@ export default function UserRegistration(props: any) {
                 variant="outlined"
                 fullWidth
                 {...field}
+                data-testid="user__registration--user-name"
               />
             )}
           />

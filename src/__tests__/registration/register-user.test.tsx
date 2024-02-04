@@ -7,9 +7,14 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("User Registration Form Tests", () => {
-  it("should display first name component", () => {
+  it("should display all fields of registration form", () => {
     render(<RegisterUser />);
-    const firstNameInput = screen.getByTestId("first_name_id");
+    const firstNameInput = screen.getByTestId("user__registration--first-name");
+    const lastNameInput = screen.getByTestId("user__registration--last-name");
+    const userNameInput = screen.getByTestId("user__registration--user-name");
+
     expect(firstNameInput).toBeInTheDocument();
+    expect(lastNameInput).toBeInTheDocument();
+    expect(userNameInput).toBeInTheDocument();
   });
 });
