@@ -113,7 +113,11 @@ export default function UserRegistration(props: any) {
           />
         </Box>
         <Box display="flex" justifyContent="center">
-          <input type="submit" />
+          <input
+            type="submit"
+            data-testid="user__registration--submit"
+            value="REGISTER"
+          />
         </Box>
       </form>
     </Box>
