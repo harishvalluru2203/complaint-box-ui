@@ -15,7 +15,7 @@ export default function UserDashboard({
 }) {
   return (
     <section>
-      <ToastContainer />
+      <ToastContainer position="top-right" />
       <ul>
         <li>
           <Link href="/user/list">User List</Link>

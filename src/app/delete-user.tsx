@@ -37,13 +37,9 @@ export default function DeleteUser(props: any) {
     });
     if (response.ok) {
       router.push("/user/list");
-      toast.success("User deleted successfully", {
-        position: "top-right",
-      });
+      toast.success("User deleted successfully");
     } else {
-      toast.error("Internal Server Error", {
-        position: "top-right",
-      });
+      toast.error("Internal Server Error");
     }
     setOpen(false);
     router.refresh();

@@ -35,18 +35,13 @@ export default function UserRegistration(props: any) {
     });
     if (response.ok) {
       router.push("/user/list");
-      toast.success("User added successfully", {
-        position: "top-right",
-      });
+      toast.success("User added successfully");
     } else {
-      toast.error("Internal Server Error", {
-        position: "top-right",
-      });
+      toast.error("Internal Server Error");
     }
   };
 
   const updateUser = async (data: any) => {
-    console.log("data: ", data);
     const response = await fetch("http://localhost:4000/user/update", {
       method: "PUT",
       headers: {
@@ -56,13 +51,9 @@ export default function UserRegistration(props: any) {
     });
     if (response.ok) {
       router.push("/user/list");
-      toast.success("User updated successfully", {
-        position: "top-right",
-      });
+      toast.success("User updated successfully");
     } else {
-      toast.error("Internal Server Error", {
-        position: "top-right",
-      });
+      toast.error("Internal Server Error");
     }
   };
 
