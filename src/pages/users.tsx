@@ -1,4 +1,4 @@
-import DeleteUser from "@/app/user/list/DeleteUser";
+import DeleteUser from "@/app/delete-user";
 import {
   Link,
   Paper,
@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 export const getServerSideProps = async () => {
-  const query = await fetch("http://localhost:4000/user/list");
+  const query = await fetch("http://localhost:4000/users");
   const response = await query.json();
 
   return {

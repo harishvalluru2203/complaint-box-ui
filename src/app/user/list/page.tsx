@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 export const getUsersList = async () => {
-  const query = await fetch("http://localhost:4000/user/list", {
+  const query = await fetch("http://localhost:4000/users", {
     cache: "no-store",
   });
   const response = await query.json();

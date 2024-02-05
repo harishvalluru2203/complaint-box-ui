@@ -26,7 +26,7 @@ export default function UserRegistration(props: any) {
   });
 
   const addUser = async (data: any) => {
-    const response = await fetch("http://localhost:4000/user/registration", {
+    const response = await fetch("http://localhost:4000/users/registration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function UserRegistration(props: any) {
   };
 
   const updateUser = async (data: any) => {
-    const response = await fetch("http://localhost:4000/user/update", {
+    const response = await fetch("http://localhost:4000/users/update", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
