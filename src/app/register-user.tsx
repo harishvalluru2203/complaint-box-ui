@@ -35,6 +35,7 @@ export default function UserRegistration(props: any) {
     });
     if (response.ok) {
       router.push("/users");
+      router.refresh();
       toast.success("User added successfully");
     } else {
       toast.error("Internal Server Error");
@@ -51,6 +52,7 @@ export default function UserRegistration(props: any) {
     });
     if (response.ok) {
       router.push("/users");
+      router.refresh();
       toast.success("User updated successfully");
     } else {
       toast.error("Internal Server Error");
