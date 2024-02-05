@@ -11,13 +11,13 @@ import {
   TableRow,
 } from "@mui/material";
 
-const getUsersList = async () => {
+async function getUsersList() {
   const query = await fetch("http://localhost:4000/users", {
     cache: "no-store",
   });
   const response = await query.json();
   return response;
-};
+}
 
 export default async function UserList(props: any) {
   const userList = await getUsersList();
