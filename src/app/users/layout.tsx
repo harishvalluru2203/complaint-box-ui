@@ -22,10 +22,10 @@ export default function UserDashboard({
       />
       <ul>
         <li>
-          <Link href="/user/list">User List</Link>
+          <Link href="/users">User List</Link>
         </li>
         <li>
-          <Link href="/user/registration">User Registration</Link>
+          <Link href="/users/registration">User Registration</Link>
         </li>
       </ul>
       {children}
