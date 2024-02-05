@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-export const getUsersList = async () => {
+const getUsersList = async () => {
   const query = await fetch("http://localhost:4000/users", {
     cache: "no-store",
   });
