@@ -29,7 +29,7 @@ export default function DeleteUser(props: any) {
       method: "DELETE",
     });
     if (response.ok) {
-      router.push("/user/list");
+      router.push("/users");
       toast.success("User deleted successfully");
     } else {
       toast.error("Internal Server Error");
