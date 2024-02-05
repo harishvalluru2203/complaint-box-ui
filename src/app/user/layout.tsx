@@ -15,7 +15,11 @@ export default function UserDashboard({
 }) {
   return (
     <section>
-      <ToastContainer position="top-right" />
+      <ToastContainer
+        position="top-right"
+        hideProgressBar={true}
+        autoClose={2000}
+      />
       <ul>
         <li>
           <Link href="/user/list">User List</Link>
