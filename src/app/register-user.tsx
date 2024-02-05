@@ -75,6 +75,7 @@ export default function UserRegistration(props: any) {
                   variant="outlined"
                   {...field}
                   data-testid="user__registration--first-name"
+                  autoComplete="off"
                 />
               )}
             />
@@ -89,6 +90,7 @@ export default function UserRegistration(props: any) {
                   variant="outlined"
                   {...field}
                   data-testid="user__registration--last-name"
+                  autoComplete="off"
                 />
               )}
             />
@@ -105,6 +107,7 @@ export default function UserRegistration(props: any) {
                 fullWidth
                 {...field}
                 data-testid="user__registration--user-name"
+                autoComplete="off"
               />
             )}
           />
