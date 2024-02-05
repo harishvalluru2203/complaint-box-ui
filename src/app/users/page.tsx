@@ -1,5 +1,6 @@
 import DeleteUser from "@/app/delete-user";
 import {
+  Box,
   Link,
   Paper,
   Table,
@@ -22,9 +23,9 @@ export default async function UserList(props: any) {
   const userList = await getUsersList();
 
   return (
-    <>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <Box display="flex" justifyContent="center">
+      <TableContainer component={Paper} style={{ width: "900px" }}>
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="center">First Name</TableCell>
@@ -54,6 +55,6 @@ export default async function UserList(props: any) {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Box>
   );
 }
