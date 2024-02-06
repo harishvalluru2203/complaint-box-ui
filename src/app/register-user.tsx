@@ -124,7 +124,7 @@ export default function UserRegistration(props: any) {
           <input
             type="submit"
             data-testid="user__registration--submit"
-            value="REGISTER"
+            value={mode !== "edit" ? "REGISTER" : "UPDATE"}
           />
         </Box>
       </form>

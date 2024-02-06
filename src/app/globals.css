@@ -1,3 +1,13 @@
 body {
   height: 100vh;
 }
+
+input[type="submit"] {
+  background-color: #1976d2;
+  height: 40px;
+  width: 130px;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  border: none;
+}
