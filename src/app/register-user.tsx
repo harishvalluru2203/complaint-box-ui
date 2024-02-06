@@ -26,13 +26,16 @@ export default function UserRegistration(props: any) {
   });
 
   const addUser = async (data: any) => {
-    const response = await fetch("http://localhost:4000/users/registration", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${process.env.API_BASE_URL}users/registration`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     if (response.ok) {
       router.push("/users");
       router.refresh();
@@ -43,7 +46,7 @@ export default function UserRegistration(props: any) {
   };
 
   const updateUser = async (data: any) => {
-    const response = await fetch("http://localhost:4000/users/update", {
+    const response = await fetch(`${process.env.API_BASE_URL}users/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

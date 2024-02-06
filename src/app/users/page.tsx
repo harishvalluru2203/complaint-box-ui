@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 async function getUsersList() {
-  const query = await fetch("https://complaint-box-api.vercel.app/users", {
+  const query = await fetch(`${process.env.API_BASE_URL}users`, {
     cache: "no-store",
   });
   const response = await query.json();

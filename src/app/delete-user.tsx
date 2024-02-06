@@ -25,7 +25,7 @@ export default function DeleteUser(props: any) {
   };
 
   const deleteUser = async () => {
-    const response = await fetch(`http://localhost:4000/users/${userId}`, {
+    const response = await fetch(`${process.env.API_BASE_URL}users/${userId}`, {
       method: "DELETE",
     });
     if (response.ok) {
