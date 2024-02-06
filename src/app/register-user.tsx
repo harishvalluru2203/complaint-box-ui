@@ -27,7 +27,7 @@ export default function UserRegistration(props: any) {
 
   const addUser = async (data: any) => {
     const response = await fetch(
-      `${process.env.API_BASE_URL}users/registration`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}users/registration`,
       {
         method: "POST",
         headers: {
@@ -46,13 +46,16 @@ export default function UserRegistration(props: any) {
   };
 
   const updateUser = async (data: any) => {
-    const response = await fetch(`${process.env.API_BASE_URL}users/update`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}users/update`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     if (response.ok) {
       router.push("/users");
       router.refresh();
