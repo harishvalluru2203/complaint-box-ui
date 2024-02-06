@@ -1,7 +1,7 @@
 import UserRegistration from "@/app/register-user";
 
 const getUserInfo = async (userId: any) => {
-  const query = await fetch(`http://localhost:4000/users/${userId}`, {
+  const query = await fetch(`${process.env.API_BASE_URL}users/${userId}`, {
     cache: "no-store",
   });
   const response = await query.json();
