@@ -45,7 +45,11 @@ export default async function UserList(props: any) {
                 <TableCell align="center">{user.lastName}</TableCell>
                 <TableCell align="center">{user.userName}</TableCell>
                 <TableCell align="center">
-                  <Link href={`/users/registration/${user._id}`}>EDIT</Link>
+                  <Link
+                    href={`${process.env.API_BASE_URL}users/registration/${user._id}`}
+                  >
+                    EDIT
+                  </Link>
                 </TableCell>
                 <TableCell align="center">
                   <DeleteUser userId={user._id} />
