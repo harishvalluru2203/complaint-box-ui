@@ -25,9 +25,12 @@ export default function DeleteUser(props: any) {
   };
 
   const deleteUser = async () => {
-    const response = await fetch(`${process.env.API_BASE_URL}users/${userId}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}users/${userId}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (response.ok) {
       router.push("/users");
       toast.success("User deleted successfully");
