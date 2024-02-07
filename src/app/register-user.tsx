@@ -29,7 +29,7 @@ export default function UserRegistration(props: any) {
 
   const addUser = async (data: any) => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}users/registration`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}users/register`,
       {
         method: "POST",
         headers: {
