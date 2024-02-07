@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "react-toastify/dist/ReactToastify.css";
-
-import UserDashboardHeader from "@/user-dashboard-header";
+import UserDashboardHeader from "../user-dashboard-header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
