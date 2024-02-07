@@ -32,12 +32,11 @@ export default function DeleteUser(props: any) {
       }
     );
     if (response.ok) {
-      router.push("/users");
+      router.refresh();
       toast.success("User deleted successfully");
     } else {
       toast.error("Internal Server Error");
     }
-    router.refresh();
   };
 
   return <Button onClick={handleClickOpen}>Delete</Button>;
