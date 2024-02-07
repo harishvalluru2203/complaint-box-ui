@@ -9,6 +9,7 @@ interface IFormInput {
   firstName: string;
   lastName: string;
   userName: string;
+  password: string;
 }
 
 export default function UserRegistration(props: any) {
@@ -22,6 +23,7 @@ export default function UserRegistration(props: any) {
       firstName: props.firstName,
       lastName: props.lastName,
       userName: props.userName,
+      password: "",
     },
   });
 
@@ -115,6 +117,22 @@ export default function UserRegistration(props: any) {
                 fullWidth
                 {...field}
                 data-testid="user__registration--user-name"
+                autoComplete="off"
+              />
+            )}
+          />
+        </Box>
+        <Box mb={2}>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <TextField
+                label="Password"
+                variant="outlined"
+                fullWidth
+                {...field}
+                data-testid="user__registration--user-password"
                 autoComplete="off"
               />
             )}
