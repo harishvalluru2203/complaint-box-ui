@@ -1,7 +1,6 @@
 import DeleteUser from "@/app/delete-user";
 import {
   Box,
-  Link,
   Paper,
   Table,
   TableBody,
@@ -11,6 +10,7 @@ import {
   TableRow,
 } from "@mui/material";
 import { cookies } from "next/headers";
+import Link from "next/link";
 
 async function getUsersList() {
   const cookieStore: any = cookies();
