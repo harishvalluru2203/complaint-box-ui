@@ -35,13 +35,19 @@ export default function UserLogin(props: any) {
     const responseResult = await response.json();
     if (response.ok) {
       document.cookie = `access_token=${responseResult.token}`;
+      router.push("/users/list");
     } else {
       toast.error("Internal Server Error");
     }
   };
 
   return (
-    <Box display="flex" justifyContent="center" style={{ height: "100%" }}>
+    <Box
+      display="flex"
+      justifyContent="center"
+      style={{ height: "100%" }}
+      marginTop="40px"
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container mb={2} gap={2}>
           <Grid item>

@@ -39,8 +39,6 @@ export default function UserRegistration(props: any) {
       }
     );
     if (response.ok) {
-      router.push("/users");
-      router.refresh();
       toast.success("User added successfully");
     } else {
       toast.error("Internal Server Error");
@@ -59,8 +57,6 @@ export default function UserRegistration(props: any) {
       }
     );
     if (response.ok) {
-      router.push("/users");
-      router.refresh();
       toast.success("User updated successfully");
     } else {
       toast.error("Internal Server Error");
@@ -72,7 +68,12 @@ export default function UserRegistration(props: any) {
   };
 
   return (
-    <Box display="flex" justifyContent="center" style={{ height: "100%" }}>
+    <Box
+      display="flex"
+      justifyContent="center"
+      style={{ height: "100%" }}
+      marginTop="40px"
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container mb={2} gap={2}>
           <Grid item>

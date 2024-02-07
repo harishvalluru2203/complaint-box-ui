@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import UserDashboardHeader from "@/user-dashboard-header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,19 +15,7 @@ export default function UserDashboard({
 }) {
   return (
     <section>
-      <ToastContainer
-        position="top-right"
-        hideProgressBar={true}
-        autoClose={2000}
-      />
-      <ul>
-        <li>
-          <Link href="/users">User List</Link>
-        </li>
-        <li>
-          <Link href="/users/registration">User Registration</Link>
-        </li>
-      </ul>
+      <UserDashboardHeader />
       {children}
     </section>
   );
