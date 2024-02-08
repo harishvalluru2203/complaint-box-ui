@@ -54,53 +54,54 @@ export default function UserLogin(props: any) {
   };
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      style={{ height: "100%" }}
-      marginTop="40px"
-    >
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Grid
+        container
+        justifyContent="center"
+        style={{ height: "100%" }}
+        marginTop="40px"
+        width="300px"
+      >
+        <Grid container mb={2}>
+          <Controller
+            control={control}
+            name="userName"
+            render={({ field }) => (
+              <TextField
+                label="User Name"
+                variant="outlined"
+                {...field}
+                data-testid="user__login--first-name"
+                autoComplete="off"
+                fullWidth
+              />
+            )}
+          />
+        </Grid>
         <Grid container mb={2} gap={2}>
-          <Grid item>
-            <Controller
-              control={control}
-              name="userName"
-              render={({ field }) => (
-                <TextField
-                  label="User Name"
-                  variant="outlined"
-                  {...field}
-                  data-testid="user__login--first-name"
-                  autoComplete="off"
-                />
-              )}
-            />
-          </Grid>
-          <Grid item>
-            <Controller
-              control={control}
-              name="password"
-              render={({ field }) => (
-                <TextField
-                  label="Password"
-                  variant="outlined"
-                  {...field}
-                  data-testid="user__login--last-name"
-                  autoComplete="off"
-                />
-              )}
-            />
-          </Grid>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <TextField
+                label="Password"
+                variant="outlined"
+                {...field}
+                data-testid="user__login--last-name"
+                autoComplete="off"
+                fullWidth
+              />
+            )}
+          />
         </Grid>
         <Box display="flex" justifyContent="center">
           <input
             type="submit"
-            data-testid="user__registration--submit"
-            value={mode !== "edit" ? "REGISTER" : "UPDATE"}
+            data-testid="user__login--submit"
+            value="LOGIN"
           />
         </Box>
-      </form>
-    </Box>
+      </Grid>
+    </form>
   );
 }

@@ -14,8 +14,8 @@ interface IFormInput {
 
 export default function UserRegistration(props: any) {
   const router = useRouter();
-
   const { mode } = props;
+  const isEditMode = mode === "edit";
 
   const { register, handleSubmit, control } = useForm<IFormInput>({
     defaultValues: {
@@ -64,12 +64,12 @@ export default function UserRegistration(props: any) {
   };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    mode !== "edit" ? addUser(data) : updateUser(data);
+    !isEditMode ? addUser(data) : updateUser(data);
   };
 
   return (
-    <Box
-      display="flex"
+    <Grid
+      container
       justifyContent="center"
       style={{ height: "100%" }}
       marginTop="40px"
@@ -123,30 +123,32 @@ export default function UserRegistration(props: any) {
             )}
           />
         </Box>
-        <Box mb={2}>
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <TextField
-                label="Password"
-                variant="outlined"
-                fullWidth
-                {...field}
-                data-testid="user__registration--user-password"
-                autoComplete="off"
-              />
-            )}
-          />
-        </Box>
+        {!isEditMode && (
+          <Box mb={2}>
+            <Controller
+              control={control}
+              name="password"
+              render={({ field }) => (
+                <TextField
+                  label="Password"
+                  variant="outlined"
+                  fullWidth
+                  {...field}
+                  data-testid="user__registration--user-password"
+                  autoComplete="off"
+                />
+              )}
+            />
+          </Box>
+        )}
         <Box display="flex" justifyContent="center">
           <input
             type="submit"
             data-testid="user__registration--submit"
-            value={mode !== "edit" ? "REGISTER" : "UPDATE"}
+            value={!isEditMode ? "REGISTER" : "UPDATE"}
           />
         </Box>
       </form>
-    </Box>
+    </Grid>
   );
 }

@@ -1,4 +1,5 @@
 import UserRegistration from "@/app/register-user";
+import { Grid } from "@mui/material";
 import { cookies } from "next/headers";
 
 async function getUserInfo(userId: any) {
@@ -17,5 +18,9 @@ async function getUserInfo(userId: any) {
 export default async function UserEditDetails({ params }: any) {
   const userInfo = await getUserInfo(params?.id);
 
-  return <UserRegistration {...userInfo} mode="edit" />;
+  return (
+    <Grid container justifyContent="center">
+      <UserRegistration {...userInfo} mode="edit" />
+    </Grid>
+  );
 }
