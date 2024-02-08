@@ -1,3 +1,3 @@
-export default function UsersHomePage() {
+export default function UsersHome() {
   return <h1>USERS HOME PAGE CONTENT</h1>;
 }
