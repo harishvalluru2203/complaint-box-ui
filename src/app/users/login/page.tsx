@@ -1,5 +1,5 @@
 import UserLogin from "../user-login";
 
-export default async function UserLoginComponent() {
+export default function UserLoginComponent() {
   return <UserLogin />;
 }
