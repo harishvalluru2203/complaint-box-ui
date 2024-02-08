@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UserDashboardHeader from "../user-dashboard-header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,5 +11,10 @@ export default function UserDashboard({
 }: {
   children: React.ReactNode;
 }) {
-  return <section>{children}</section>;
+  return (
+    <section>
+      <UserDashboardHeader />
+      {children}
+    </section>
+  );
 }
