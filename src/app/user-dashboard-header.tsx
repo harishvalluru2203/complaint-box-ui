@@ -5,11 +5,15 @@ import { useRouter } from "next/navigation";
 export default function UserDashboardHeader() {
   const router = useRouter();
 
-  const handleRegisterClick = () => {
+  const handleHomeRoute = () => {
+    router.push("/");
+  };
+
+  const handleRegisterRoute = () => {
     router.push("/users/register");
   };
 
-  const handleLoginClick = () => {
+  const handleLoginRoute = () => {
     router.push("/users/login");
   };
 
@@ -20,10 +24,13 @@ export default function UserDashboardHeader() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Complaint Box
           </Typography>
-          <Button color="inherit" onClick={handleRegisterClick}>
+          <Button color="inherit" onClick={handleHomeRoute}>
+            HOME
+          </Button>
+          <Button color="inherit" onClick={handleRegisterRoute}>
             REGISTER
           </Button>
-          <Button color="inherit" onClick={handleLoginClick}>
+          <Button color="inherit" onClick={handleLoginRoute}>
             LOGIN
           </Button>
         </Toolbar>

@@ -22,7 +22,8 @@ export default function UserLogin(props: any) {
   });
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const response = await fetch(
+    const toastId = toast.loading("Please wait...");
+    const response: any = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}auth/login`,
       {
         method: "POST",
@@ -34,10 +35,21 @@ export default function UserLogin(props: any) {
     );
     const responseResult = await response.json();
     if (response.ok) {
+      toast.update(toastId, {
+        render: "Successfully logged in",
+        isLoading: false,
+        type: "success",
+        autoClose: 2000,
+      });
       document.cookie = `access_token=${responseResult.token}`;
       router.push("/users/list");
     } else {
-      toast.error("Internal Server Error");
+      toast.update(toastId, {
+        render: "Internal Server Error",
+        isLoading: false,
+        type: "error",
+        autoClose: 2000,
+      });
     }
   };
 
