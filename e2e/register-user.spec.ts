@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("http://localhost:3000/users/registration");
+  await page.goto("http://localhost:3000/user/registration");
 });
 
 test("User Registration Form", async ({ page }) => {

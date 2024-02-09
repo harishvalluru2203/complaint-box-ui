@@ -6,7 +6,7 @@ export default function AppDashboardHeader() {
   const router = useRouter();
 
   const handleUserClick = () => {
-    router.push("/users");
+    router.push("/user");
   };
 
   return (

@@ -42,7 +42,7 @@ export default function UserLogin(props: any) {
         autoClose: 2000,
       });
       document.cookie = `access_token=${responseResult.token}`;
-      router.push("/users/list");
+      router.push("/user/dashboard");
     } else {
       toast.update(toastId, {
         render: "Internal Server Error",

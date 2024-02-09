@@ -10,11 +10,11 @@ export default function UserDashboardHeader() {
   };
 
   const handleRegisterRoute = () => {
-    router.push("/users/register");
+    router.push("/user/register");
   };
 
   const handleLoginRoute = () => {
-    router.push("/users/login");
+    router.push("/user/login");
   };
 
   return (
