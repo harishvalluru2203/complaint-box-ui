@@ -9,7 +9,7 @@ interface IFormInput {
   password: string;
 }
 
-export default function UserLogin(props: any) {
+export default function AdminLogin(props: any) {
   const router = useRouter();
 
   const { mode } = props;
@@ -62,7 +62,7 @@ export default function UserLogin(props: any) {
         marginTop="40px"
         width="300px"
       >
-        <h1>User Login</h1>
+        <h1>Admin Login</h1>
 
         <Grid container mb={2}>
           <Controller

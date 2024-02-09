@@ -68,14 +68,17 @@ export default function UserRegistration(props: any) {
   };
 
   return (
-    <Grid
-      container
-      justifyContent="center"
-      style={{ height: "100%" }}
-      marginTop="40px"
-    >
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container mb={2} gap={2}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Grid
+        container
+        justifyContent="center"
+        style={{ height: "100%" }}
+        marginTop="40px"
+        width="461px"
+      >
+        <h1>User Registration</h1>
+
+        <Grid container item mb={2} gap={2}>
           <Grid item>
             <Controller
               control={control}
@@ -107,7 +110,7 @@ export default function UserRegistration(props: any) {
             />
           </Grid>
         </Grid>
-        <Box mb={2}>
+        <Grid container item mb={2}>
           <Controller
             control={control}
             name="userName"
@@ -122,9 +125,9 @@ export default function UserRegistration(props: any) {
               />
             )}
           />
-        </Box>
+        </Grid>
         {!isEditMode && (
-          <Box mb={2}>
+          <Grid container item mb={2}>
             <Controller
               control={control}
               name="password"
@@ -139,7 +142,7 @@ export default function UserRegistration(props: any) {
                 />
               )}
             />
-          </Box>
+          </Grid>
         )}
         <Box display="flex" justifyContent="center">
           <input
@@ -148,7 +151,7 @@ export default function UserRegistration(props: any) {
             value={!isEditMode ? "REGISTER" : "UPDATE"}
           />
         </Box>
-      </form>
-    </Grid>
+      </Grid>
+    </form>
   );
 }

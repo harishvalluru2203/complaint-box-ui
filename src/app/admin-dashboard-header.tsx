@@ -2,15 +2,15 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-export default function AppDashboardHeader() {
+export default function AdminDashboardHeader() {
   const router = useRouter();
 
-  const handleAdminClick = () => {
-    router.push("/admin");
+  const handleHomeRoute = () => {
+    router.push("/");
   };
 
-  const handleUserClick = () => {
-    router.push("/user");
+  const handleLoginRoute = () => {
+    router.push("/admin/login");
   };
 
   return (
@@ -20,11 +20,11 @@ export default function AppDashboardHeader() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Complaint Box
           </Typography>
-          <Button color="inherit" onClick={handleAdminClick}>
-            Admin
+          <Button color="inherit" onClick={handleHomeRoute}>
+            HOME
           </Button>
-          <Button color="inherit" onClick={handleUserClick}>
-            User
+          <Button color="inherit" onClick={handleLoginRoute}>
+            LOGIN
           </Button>
         </Toolbar>
       </AppBar>
