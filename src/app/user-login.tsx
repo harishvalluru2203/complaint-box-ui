@@ -24,7 +24,7 @@ export default function UserLogin(props: any) {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const toastId = toast.loading("Please wait...");
     const response: any = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}auth/login`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}user/login`,
       {
         method: "POST",
         headers: {

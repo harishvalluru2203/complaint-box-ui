@@ -24,7 +24,7 @@ export default function AdminLogin(props: any) {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const toastId = toast.loading("Please wait...");
     const response: any = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}auth/login`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}admin/login`,
       {
         method: "POST",
         headers: {
@@ -42,7 +42,7 @@ export default function AdminLogin(props: any) {
         autoClose: 2000,
       });
       document.cookie = `access_token=${responseResult.token}`;
-      router.push("/user/dashboard");
+      router.push("/admin/dashboard");
     } else {
       toast.update(toastId, {
         render: "Internal Server Error",
