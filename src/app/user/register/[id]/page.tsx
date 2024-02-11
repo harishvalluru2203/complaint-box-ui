@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 async function getUserInfo(userId: any) {
   const cookieStore: any = cookies();
   const accessToken: any = cookieStore.get("access_token").value;
-  const query = await fetch(`${process.env.API_BASE_URL}users/${userId}`, {
+  const query = await fetch(`${process.env.API_BASE_URL}user/${userId}`, {
     cache: "no-store",
     headers: {
       Authorization: accessToken,

@@ -9,10 +9,6 @@ export default function AdminDashboardHeader() {
     router.push("/");
   };
 
-  const handleLoginRoute = () => {
-    router.push("/admin/login");
-  };
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "darkcyan" }}>
@@ -22,9 +18,6 @@ export default function AdminDashboardHeader() {
           </Typography>
           <Button color="inherit" onClick={handleHomeRoute}>
             HOME
-          </Button>
-          <Button color="inherit" onClick={handleLoginRoute}>
-            LOGIN
           </Button>
         </Toolbar>
       </AppBar>

@@ -13,10 +13,6 @@ export default function UserDashboardHeader() {
     router.push("/user/register");
   };
 
-  const handleLoginRoute = () => {
-    router.push("/user/login");
-  };
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "cadetblue" }}>
@@ -29,9 +25,6 @@ export default function UserDashboardHeader() {
           </Button>
           <Button color="inherit" onClick={handleRegisterRoute}>
             REGISTER
-          </Button>
-          <Button color="inherit" onClick={handleLoginRoute}>
-            LOGIN
           </Button>
         </Toolbar>
       </AppBar>

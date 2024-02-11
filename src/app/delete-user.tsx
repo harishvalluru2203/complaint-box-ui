@@ -26,7 +26,7 @@ export default function DeleteUser(props: any) {
 
   const deleteUser = async () => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}users/${userId}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}user/${userId}`,
       {
         method: "DELETE",
       }

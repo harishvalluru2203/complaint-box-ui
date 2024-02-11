@@ -15,7 +15,7 @@ import Link from "next/link";
 async function getUsersList() {
   const cookieStore: any = cookies();
   const accessToken: any = cookieStore.get("access_token").value;
-  const query = await fetch(`${process.env.API_BASE_URL}users`, {
+  const query = await fetch(`${process.env.API_BASE_URL}user/list`, {
     cache: "no-store",
     headers: {
       Authorization: accessToken,
