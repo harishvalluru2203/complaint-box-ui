@@ -41,7 +41,7 @@ export default function UserLogin(props: any) {
         type: "success",
         autoClose: 2000,
       });
-      document.cookie = `access_token=${responseResult.token}`;
+      document.cookie = `user_access_token=${responseResult.token}`;
       router.push("/user/dashboard");
     } else {
       toast.update(toastId, {

@@ -1,4 +1,5 @@
 "use client";
+import { clearCookies } from "@/utils/authUtils";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
@@ -13,6 +14,11 @@ export default function UserDashboardHeader() {
     router.push("/user/register");
   };
 
+  const handleLogout = () => {
+    clearCookies();
+    router.push("/");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "cadetblue" }}>
@@ -25,6 +31,9 @@ export default function UserDashboardHeader() {
           </Button>
           <Button color="inherit" onClick={handleRegisterRoute}>
             REGISTER
+          </Button>
+          <Button color="inherit" onClick={handleLogout}>
+            Logout
           </Button>
         </Toolbar>
       </AppBar>

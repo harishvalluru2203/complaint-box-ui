@@ -41,7 +41,7 @@ export default function AdminLogin(props: any) {
         type: "success",
         autoClose: 2000,
       });
-      document.cookie = `access_token=${responseResult.token}`;
+      document.cookie = `admin_access_token=${responseResult.token}`;
       router.push("/admin/dashboard");
     } else {
       toast.update(toastId, {

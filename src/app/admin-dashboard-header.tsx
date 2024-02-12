@@ -1,4 +1,5 @@
 "use client";
+import { clearCookies } from "@/utils/authUtils";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
@@ -6,6 +7,11 @@ export default function AdminDashboardHeader() {
   const router = useRouter();
 
   const handleHomeRoute = () => {
+    router.push("/");
+  };
+
+  const handleLogout = () => {
+    clearCookies();
     router.push("/");
   };
 
@@ -18,6 +24,9 @@ export default function AdminDashboardHeader() {
           </Typography>
           <Button color="inherit" onClick={handleHomeRoute}>
             HOME
+          </Button>
+          <Button color="inherit" onClick={handleLogout}>
+            Logout
           </Button>
         </Toolbar>
       </AppBar>
