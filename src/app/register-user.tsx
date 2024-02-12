@@ -74,12 +74,12 @@ export default function UserRegistration(props: any) {
         justifyContent="center"
         style={{ height: "100%" }}
         marginTop="40px"
-        width="461px"
+        maxWidth="450px"
       >
         <h1>User Registration</h1>
 
         <Grid container item mb={2} gap={2}>
-          <Grid item>
+          <Grid item xs>
             <Controller
               control={control}
               name="firstName"
@@ -90,11 +90,12 @@ export default function UserRegistration(props: any) {
                   {...field}
                   data-testid="user__registration--first-name"
                   autoComplete="off"
+                  fullWidth
                 />
               )}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs>
             <Controller
               control={control}
               name="lastName"
@@ -105,6 +106,7 @@ export default function UserRegistration(props: any) {
                   {...field}
                   data-testid="user__registration--last-name"
                   autoComplete="off"
+                  fullWidth
                 />
               )}
             />
