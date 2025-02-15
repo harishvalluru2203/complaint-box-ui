@@ -57,7 +57,7 @@ export default async function UserList(props: any) {
                   <Link href={`/user/register/${user.id}`}>EDIT</Link>
                 </TableCell>
                 <TableCell align="center">
-                  <DeleteUser userId={user._id} />
+                  <DeleteUser userId={user.id} />
                 </TableCell>
               </TableRow>
             ))}
