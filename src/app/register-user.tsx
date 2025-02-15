@@ -74,39 +74,37 @@ export default function UserRegistration(props: any) {
         <h1>User Registration</h1>
       </Box>
 
-      <Grid container justifyContent="space-between" mb={2}>
-        <Grid>
-          <Controller
-            control={control}
-            name="firstName"
-            render={({ field }) => (
-              <TextField
-                label="First Name"
-                variant="outlined"
-                {...field}
-                data-testid="user__registration--first-name"
-                autoComplete="off"
-                fullWidth
-              />
-            )}
-          />
-        </Grid>
-        <Grid>
-          <Controller
-            control={control}
-            name="lastName"
-            render={({ field }) => (
-              <TextField
-                label="Last Name"
-                variant="outlined"
-                {...field}
-                data-testid="user__registration--last-name"
-                autoComplete="off"
-                fullWidth
-              />
-            )}
-          />
-        </Grid>
+      <Grid mb={2}>
+        <Controller
+          control={control}
+          name="firstName"
+          render={({ field }) => (
+            <TextField
+              label="First Name"
+              variant="outlined"
+              {...field}
+              data-testid="user__registration--first-name"
+              autoComplete="off"
+              fullWidth
+            />
+          )}
+        />
+      </Grid>
+      <Grid mb={2}>
+        <Controller
+          control={control}
+          name="lastName"
+          render={({ field }) => (
+            <TextField
+              label="Last Name"
+              variant="outlined"
+              {...field}
+              data-testid="user__registration--last-name"
+              autoComplete="off"
+              fullWidth
+            />
+          )}
+        />
       </Grid>
 
       <Grid mb={2}>
@@ -125,6 +123,7 @@ export default function UserRegistration(props: any) {
           )}
         />
       </Grid>
+
       {!isEditMode && (
         <Grid mb={2}>
           <Controller
