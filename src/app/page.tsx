@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import AppDashboardHeader from "./app-dashboard-header";
 
 export default function AppHomePage() {

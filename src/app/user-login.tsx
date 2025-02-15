@@ -1,8 +1,9 @@
 "use client";
-import { Box, Grid, TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import Grid from "@mui/material/Grid2";
 
 interface IFormInput {
   userName: string;
@@ -55,55 +56,45 @@ export default function UserLogin(props: any) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid
-        container
-        justifyContent="center"
-        style={{ height: "100%" }}
-        marginTop="40px"
-        width="300px"
-      >
+      <Box display="flex" justifyContent="center">
         <h1>User Login</h1>
+      </Box>
 
-        <Grid container mb={2}>
-          <Controller
-            control={control}
-            name="userName"
-            render={({ field }) => (
-              <TextField
-                label="User Name"
-                variant="outlined"
-                {...field}
-                data-testid="user__login--first-name"
-                autoComplete="off"
-                fullWidth
-              />
-            )}
-          />
-        </Grid>
-        <Grid container mb={2} gap={2}>
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <TextField
-                label="Password"
-                variant="outlined"
-                {...field}
-                data-testid="user__login--last-name"
-                autoComplete="off"
-                fullWidth
-              />
-            )}
-          />
-        </Grid>
-        <Box display="flex" justifyContent="center">
-          <input
-            type="submit"
-            data-testid="user__login--submit"
-            value="LOGIN"
-          />
-        </Box>
+      <Grid mb={2}>
+        <Controller
+          control={control}
+          name="userName"
+          render={({ field }) => (
+            <TextField
+              label="User Name"
+              variant="outlined"
+              {...field}
+              data-testid="user__login--first-name"
+              autoComplete="off"
+              fullWidth
+            />
+          )}
+        />
       </Grid>
+      <Grid mb={2}>
+        <Controller
+          control={control}
+          name="password"
+          render={({ field }) => (
+            <TextField
+              label="Password"
+              variant="outlined"
+              {...field}
+              data-testid="user__login--last-name"
+              autoComplete="off"
+              fullWidth
+            />
+          )}
+        />
+      </Grid>
+      <Box display="flex" justifyContent="center">
+        <input type="submit" data-testid="user__login--submit" value="LOGIN" />
+      </Box>
     </form>
   );
 }

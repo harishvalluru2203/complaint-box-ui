@@ -1,5 +1,6 @@
 "use client";
-import { Box, Grid, TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import { useRouter } from "next/navigation";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -69,91 +70,87 @@ export default function UserRegistration(props: any) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid
-        container
-        justifyContent="center"
-        style={{ height: "100%" }}
-        marginTop="40px"
-        maxWidth="450px"
-      >
+      <Box display="flex" justifyContent="center">
         <h1>User Registration</h1>
+      </Box>
 
-        <Grid container item mb={2} gap={2}>
-          <Grid item xs>
-            <Controller
-              control={control}
-              name="firstName"
-              render={({ field }) => (
-                <TextField
-                  label="First Name"
-                  variant="outlined"
-                  {...field}
-                  data-testid="user__registration--first-name"
-                  autoComplete="off"
-                  fullWidth
-                />
-              )}
-            />
-          </Grid>
-          <Grid item xs>
-            <Controller
-              control={control}
-              name="lastName"
-              render={({ field }) => (
-                <TextField
-                  label="Last Name"
-                  variant="outlined"
-                  {...field}
-                  data-testid="user__registration--last-name"
-                  autoComplete="off"
-                  fullWidth
-                />
-              )}
-            />
-          </Grid>
-        </Grid>
-        <Grid container item mb={2}>
+      <Grid container justifyContent="space-between" mb={2}>
+        <Grid>
           <Controller
             control={control}
-            name="userName"
+            name="firstName"
             render={({ field }) => (
               <TextField
-                label="User Name"
+                label="First Name"
+                variant="outlined"
+                {...field}
+                data-testid="user__registration--first-name"
+                autoComplete="off"
+                fullWidth
+              />
+            )}
+          />
+        </Grid>
+        <Grid>
+          <Controller
+            control={control}
+            name="lastName"
+            render={({ field }) => (
+              <TextField
+                label="Last Name"
+                variant="outlined"
+                {...field}
+                data-testid="user__registration--last-name"
+                autoComplete="off"
+                fullWidth
+              />
+            )}
+          />
+        </Grid>
+      </Grid>
+
+      <Grid mb={2}>
+        <Controller
+          control={control}
+          name="userName"
+          render={({ field }) => (
+            <TextField
+              label="User Name"
+              variant="outlined"
+              fullWidth
+              {...field}
+              data-testid="user__registration--user-name"
+              autoComplete="off"
+            />
+          )}
+        />
+      </Grid>
+      {!isEditMode && (
+        <Grid mb={2}>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <TextField
+                label="Password"
                 variant="outlined"
                 fullWidth
                 {...field}
-                data-testid="user__registration--user-name"
+                data-testid="user__registration--user-password"
                 autoComplete="off"
               />
             )}
           />
         </Grid>
-        {!isEditMode && (
-          <Grid container item mb={2}>
-            <Controller
-              control={control}
-              name="password"
-              render={({ field }) => (
-                <TextField
-                  label="Password"
-                  variant="outlined"
-                  fullWidth
-                  {...field}
-                  data-testid="user__registration--user-password"
-                  autoComplete="off"
-                />
-              )}
-            />
-          </Grid>
-        )}
-        <Box display="flex" justifyContent="center">
-          <input
-            type="submit"
-            data-testid="user__registration--submit"
-            value={!isEditMode ? "REGISTER" : "UPDATE"}
-          />
-        </Box>
-      </Grid>
+      )}
+
+      <Box display="flex" justifyContent="center">
+        <input
+          type="submit"
+          data-testid="user__registration--submit"
+          value={!isEditMode ? "REGISTER" : "UPDATE"}
+        />
+      </Box>
     </form>
   );
 }
