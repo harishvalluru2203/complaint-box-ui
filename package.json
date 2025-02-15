@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "run-p start:nextDevApp start:mockServer",
-    "start:nextDevApp": "next dev --port 3000",
-    "start:mockServer": "node ./src/app/common/mock-server/mockServerMiddleware.mjs",
+    "dev": "run-p run:nextApp run:mockServer",
+    "run:nextApp": "next dev --port 3000",
+    "run:mockServer": "node ./src/app/common/mock-server/mockServerMiddleware.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

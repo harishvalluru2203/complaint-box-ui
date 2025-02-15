@@ -25,7 +25,6 @@ async function getUsersList() {
     }
   );
   const response = await query.json();
-  console.log("response: ", response);
   return response;
 }
 
@@ -33,8 +32,8 @@ export default async function UserList(props: any) {
   const userList = await getUsersList();
 
   return (
-    <Box display="flex" justifyContent="center">
-      <TableContainer component={Paper} style={{ width: "900px" }}>
+    <Box display="flex" justifyContent="center" p={4}>
+      <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -55,7 +54,7 @@ export default async function UserList(props: any) {
                 <TableCell align="center">{user.username}</TableCell>
                 <TableCell align="center">{user.email}</TableCell>
                 <TableCell align="center">
-                  <Link href={`/user/register/${user._id}`}>EDIT</Link>
+                  <Link href={`/user/register/${user.id}`}>EDIT</Link>
                 </TableCell>
                 <TableCell align="center">
                   <DeleteUser userId={user._id} />
