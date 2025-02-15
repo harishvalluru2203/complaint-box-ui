@@ -38,9 +38,9 @@ export default async function UserList(props: any) {
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">First Name</TableCell>
-              <TableCell align="center">Last Name</TableCell>
+              <TableCell align="center">Name</TableCell>
               <TableCell align="center">User Name</TableCell>
+              <TableCell align="center">Email</TableCell>
               <TableCell align="center"></TableCell>
               <TableCell align="center"></TableCell>
             </TableRow>
@@ -48,12 +48,12 @@ export default async function UserList(props: any) {
           <TableBody>
             {userList.map((user: any) => (
               <TableRow
-                key={user._id}
+                key={user.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="center">{user.firstName}</TableCell>
-                <TableCell align="center">{user.lastName}</TableCell>
-                <TableCell align="center">{user.userName}</TableCell>
+                <TableCell align="center">{user.name}</TableCell>
+                <TableCell align="center">{user.username}</TableCell>
+                <TableCell align="center">{user.email}</TableCell>
                 <TableCell align="center">
                   <Link href={`/user/register/${user._id}`}>EDIT</Link>
                 </TableCell>
