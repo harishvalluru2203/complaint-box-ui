@@ -1,0 +1,23 @@
+{
+  "name": "some mock",
+  "request": {
+    "url": "^/user/list$",
+    "method": "GET"
+  },
+  "responses": {
+    "ok": {
+      "default": true,
+      "data": [
+        {
+          "_id": 1,
+          "firstName": "Valluru",
+          "lastName": "Harish",
+          "userName": "hvallu1"
+        }
+      ]
+    },
+    "internal_server_error": {
+      "status": 500
+    }
+  }
+}
